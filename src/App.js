@@ -1,14 +1,13 @@
 import React, { useState, useEffect } from 'react';
 
-// import Carousel, { Dots, slidesToShowPlugin } from '@brainhubeu/react-carousel';
+import SlideItem from './Components/SlideItem/SlideItem';
+import Loading from './Components/Loading/Loading';
+import MovieInfo from './Components/MovieInfo/MovieInfo';
 
-import SlideItem from './Components/SlideItem/SlideItem'
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
-import ItemsCarousel from 'react-items-carousel';
-
-
-// import { CarouselProvider, Slider, Slide, ButtonBack, ButtonNext } from 'pure-react-carousel';
-// import 'pure-react-carousel/dist/react-carousel.es.css';
 
 
 
@@ -17,12 +16,14 @@ function App() {
 
 
   const [fullArray, setFullArray] = useState([]);
-  const [selectedMovie, setSelectedMovie] = useState()
-
+  const [appLoaded, setAppLoaded] = useState(false)
+  const [activeSlideBefore, setActiveSlideBefore] = useState(1);
+  const [activeSlideAfter, setActiveSlideAfter] = useState(1);
 
 
 
   const API_KEY = 'd17532e59bebbbee29d974df5c3772d7';
+
 
 
 
@@ -39,6 +40,7 @@ function App() {
     }, []));
 
   
+    
   const sortByDate = (fullArray) => (
     fullArray.sort((a, b) => {
 
@@ -65,105 +67,105 @@ function App() {
     while (processComplete===false){
       let page = await pageGet(i);
       let pageReduced = popularityReduce(page);
+
+
       
       if (pageReduced.length > 0) {
         fullArray = fullArray.concat(pageReduced);
-        i++
+        i++;
         
       }else {
-        console.log('done')
+        console.log('done');
         processComplete = true;
-      }
-    }
+      };
+    };
 
     setFullArray(sortByDate(fullArray));
-  }
+  };
   
-
 
 
   useEffect(() => {
     
-    thing()
-  }, [])
+    thing();
+  }, []);
 
 
 
 
   useEffect(() => {
-    console.log(selectedMovie)
+    if (fullArray.length) {
+      console.log(fullArray[6].title)
+      setAppLoaded(true)
+    }
 
-  }, [selectedMovie])
-
-
-  const testFunc = selectedMovie => {
-    setSelectedMovie(selectedMovie)
-  }
-
-
+  }, [fullArray]);
 
 
   
   
   const slideList =  fullArray.map((movie, index) => (
     <SlideItem index={index} title={movie.title} image={movie.poster_path} />    
-  ))
+  ));
 
 
 
-  const [activeItemIndex, setActiveItemIndex] = useState(0);
-  const chevronWidth = 40;
+
+  const settingsThumbs = {
+    slidesToShow: 9,
+    slidesToScroll: 1,
+    className: "center",
+    dots: false,
+    centerMode: true,
+    swipeToSlide: true,
+    focusOnSelect: true,
+    centerPadding: '60px',
+    arrows: true,
+    lazyLoad: 'ondemand',
+    beforeChange: (current, next) => setActiveSlideBefore(next),
+    afterChange: current => setActiveSlideAfter(current)
+  };
+
+
 
 
   return (
 
-    <div style={{ padding: `0 ${chevronWidth}px` }} className="App">
+    <div className="App">
 
 
-      {/* <CarouselProvider
-        naturalSlideWidth={185}
-        naturalSlideHeight={250}
-        totalSlides={fullArray.length}
-        visibleSlides={10}
-      >
-          <Slider>
+      {
 
-            {slideList}
+        appLoaded   ?
+
+          (
+            <div className='app-container'>
+
+              <MovieInfo title={fullArray[activeSlideBefore].title} overview={fullArray[activeSlideBefore].overview} backdrop={fullArray[activeSlideBefore].backdrop_path} />
+              
+              
+              <div className="slider-wrapper">
+
+
+                <Slider {...settingsThumbs}>
+
+                  {slideList}
+
+                </Slider>
+
+
+              </div>
             
-          </Slider>
 
-          <ButtonBack>Back</ButtonBack>
-          <ButtonNext>Next</ButtonNext>        
+          </div>
 
+        ):
 
-      </CarouselProvider> */}
+        (<Loading />)
 
+      }
 
-      <ItemsCarousel
-        requestToChangeActive={setActiveItemIndex}
-        activeItemIndex={activeItemIndex}
-        numberOfCards={8}
-        gutter={20}
-        leftChevron={<button>{'<'}</button>}
-        rightChevron={<button>{'>'}</button>}
-        outsideChevron
-        chevronWidth={chevronWidth}
-        showSliter={true}
-        slidesToScroll={4}
-      >
-
-
-        {slideList}
-      </ItemsCarousel>      
-
-
-
-
-
-      
-
-
-    </div>
+      </div>
 
   );
 }
