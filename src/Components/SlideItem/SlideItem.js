@@ -1,5 +1,5 @@
 import React from 'react';
-import { Slide } from 'pure-react-carousel';
+
 
 
 

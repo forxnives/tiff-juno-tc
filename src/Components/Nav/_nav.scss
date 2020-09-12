@@ -1,0 +1,36 @@
+.nav {
+    height: 6vh;
+    background-color: black;
+    position: relative;
+
+
+    &-logo {
+        position: absolute;
+
+        min-width: 120px;
+        max-width: 300px;
+        height: 80px;
+        background-color: #ff4822;
+        top: 0;
+        left: 6vw;
+        z-index: 2;
+        text-align: center;
+        // display: flex;
+
+        -webkit-border-bottom-right-radius: 10px;
+        -webkit-border-bottom-left-radius: 10px;
+        -moz-border-radius-bottomright: 10px;
+        -moz-border-radius-bottomleft: 10px;
+        border-bottom-right-radius: 10px;
+        border-bottom-left-radius: 10px;
+
+
+
+        img{
+            width: 80px;
+            margin: 14.25px 0;
+            // height: 100%;
+        }
+
+    }
+}

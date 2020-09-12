@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
+import Nav from './Components/Nav/Nav';
 import SlideItem from './Components/SlideItem/SlideItem';
 import Loading from './Components/Loading/Loading';
 import MovieInfo from './Components/MovieInfo/MovieInfo';
@@ -29,6 +30,8 @@ function App() {
 
   const popularityReduce = (pageArray) => (
     pageArray.reduce((accumulator, movie) => {
+
+      console.log(movie)
       if (movie.popularity > 10){
 
         let { title, id, poster_path, backdrop_path, release_date, overview } = movie;
@@ -112,7 +115,7 @@ function App() {
 
 
   const settingsThumbs = {
-    slidesToShow: 9,
+    slidesToShow: 7,
     slidesToScroll: 1,
     className: "center",
     dots: false,
@@ -133,6 +136,8 @@ function App() {
 
     <div className="App">
 
+      <Nav />
+
 
       {
 
@@ -141,7 +146,7 @@ function App() {
           (
             <div className='app-container'>
 
-              <MovieInfo title={fullArray[activeSlideBefore].title} overview={fullArray[activeSlideBefore].overview} backdrop={fullArray[activeSlideBefore].backdrop_path} />
+              <MovieInfo title={fullArray[activeSlideBefore].title} poster={fullArray[activeSlideBefore].poster_path} overview={fullArray[activeSlideBefore].overview} backdrop={fullArray[activeSlideBefore].backdrop_path} />
               
               
               <div className="slider-wrapper">

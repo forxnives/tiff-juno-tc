@@ -10,6 +10,116 @@
     background-size: cover;
 
     position: absolute;
+    display: flex;
+    // justify-content: center;
+    flex-direction: column;
+    // align-items: center;
+
+    &-container {
+        // max-width: 90vw;
+        // max-height: 570px;
+        height: 100%;
+        
+        display: flex;
+        justify-content: center;
+
+        // position: absolute;
+        // top: 0;
+        // right: 500px;
+
+        &-box {
+            width: 90%;
+            height: 100%;
+            background-color: rgba($color: white, $alpha: .1);
+
+            -webkit-border-bottom-right-radius: 10px;
+            -webkit-border-bottom-left-radius: 10px;
+            -moz-border-radius-bottomright: 10px;
+            -moz-border-radius-bottomleft: 10px;
+            border-bottom-right-radius: 10px;
+            border-bottom-left-radius: 10px;
+
+            display: flex;
+            justify-content: center;
+            
+            .box{
+                align-self: center;
+                display: flex;
+                // justify-content: space-around;
+                // height: auto;
+
+                .details {
+                    width: 40vw;
+                    height: auto;
+                    // background-color: green;
+                    // padding: 25px;
+                    // box-sizing: border-box;
+                    
+
+
+                    &-inner {
+
+                        border: 25px solid rgba($color: white, $alpha: .4);
+                        box-sizing: border-box;
+                        background-color: white;
+                        height: 100%;
+                        background-clip: padding-box;
+
+                        h1 {
+                            text-align: center;
+                        }
+                    }
+
+
+                }
+            }
+
+
+            img {
+                width: 250px;
+                // height: auto;
+                align-self: center;
+                border: 25px solid rgba($color: white, $alpha: .4);
+                margin-right: 30px;    
+            }
+
+
+        }
+        
+    }
+
+    &-dummy {
+        // background-color: pink;
+        height: 70vh;
+        width: 100%;
+    }
 
 }
 
+@media only screen and (max-width: 680px) {
+
+
+    .info-container-box {
+        height: 50vh;
+        align-self: flex-end;
+    }
+
+    .box {
+
+        display: inline-block;
+        height: 100%;
+        width: 100%;
+
+        .details-inner {
+            width: 90vw;
+            height: 30px;
+        }
+
+        img {
+            display: none;
+          }
+      
+
+    }
+
+  }
