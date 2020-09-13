@@ -45,6 +45,7 @@
             .box{
                 align-self: center;
                 display: flex;
+                max-height: 426px;
                 // justify-content: space-around;
                 // height: auto;
 
@@ -57,18 +58,7 @@
                     
 
 
-                    &-inner {
 
-                        border: 25px solid rgba($color: white, $alpha: .4);
-                        box-sizing: border-box;
-                        background-color: white;
-                        height: 100%;
-                        background-clip: padding-box;
-
-                        h1 {
-                            text-align: center;
-                        }
-                    }
 
 
                 }
@@ -112,7 +102,7 @@
 
         .details-inner {
             width: 90vw;
-            height: 30px;
+            height: 100%;
         }
 
         img {

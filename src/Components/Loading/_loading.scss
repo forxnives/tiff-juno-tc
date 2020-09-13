@@ -1,0 +1,27 @@
+body {
+    height: 50vh;
+    background: black;
+  }
+  
+  svg {
+    position: absolute;
+    top: 40%;
+    left: 45%;
+    height: 10em;
+    transform: rotate(-60deg);
+    color: white;
+    animation: 2s linear 0s infinite rotate;
+  }
+  
+  #shadow {
+    animation: 2s linear 0s infinite reverse rotate;
+    color: darkgrey;
+    opacity: 90%;
+    z-index: -1;
+    opacity: 70%;
+  }
+  
+  @keyframes rotate {
+    from {transform: rotate(-60deg)}
+    to {transform: rotate(300deg)}
+  }

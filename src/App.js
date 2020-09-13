@@ -18,8 +18,8 @@ function App() {
 
   const [fullArray, setFullArray] = useState([]);
   const [appLoaded, setAppLoaded] = useState(false)
-  const [activeSlideBefore, setActiveSlideBefore] = useState(1);
-  const [activeSlideAfter, setActiveSlideAfter] = useState(1);
+  const [activeSlideBefore, setActiveSlideBefore] = useState(0);
+
 
 
 
@@ -31,12 +31,12 @@ function App() {
   const popularityReduce = (pageArray) => (
     pageArray.reduce((accumulator, movie) => {
 
-      console.log(movie)
+
       if (movie.popularity > 10){
 
-        let { title, id, poster_path, backdrop_path, release_date, overview } = movie;
+        let { title, id, poster_path, release_date } = movie;
 
-        accumulator.push({title, id, poster_path, backdrop_path, release_date, overview });
+        accumulator.push({title, id, poster_path, release_date });
       }
 
       return accumulator
@@ -54,43 +54,44 @@ function App() {
 
 
 
-  async function pageGet(pageNum) {
+  async function pageFetch(pageNum) {
     const response = await fetch(`https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=${pageNum}&primary_release_year=2020`);
     const json = await response.json();
     return json.results;
   }
 
 
-  async function thing () {
 
-    let processComplete = false;
-    let i = 1;
-    let fullArray = [];
-
-    while (processComplete===false){
-      let page = await pageGet(i);
-      let pageReduced = popularityReduce(page);
-
-
-      
-      if (pageReduced.length > 0) {
-        fullArray = fullArray.concat(pageReduced);
-        i++;
-        
-      }else {
-        console.log('done');
-        processComplete = true;
-      };
-    };
-
-    setFullArray(sortByDate(fullArray));
-  };
-  
 
 
   useEffect(() => {
+
+    async function INIT () {
+
+      let processComplete = false;
+      let i = 1;
+      let fullArray = [];
+  
+      while (processComplete===false){
+        let page = await pageFetch(i);
+        let pageReduced = popularityReduce(page);
+  
+  
+        
+        if (pageReduced.length > 0) {
+          fullArray = fullArray.concat(pageReduced);
+          i++;
+          
+        }else {
+          console.log('done');
+          processComplete = true;
+        };
+      };
+  
+      setFullArray(sortByDate(fullArray));
+    };
     
-    thing();
+    INIT();
   }, []);
 
 
@@ -98,7 +99,7 @@ function App() {
 
   useEffect(() => {
     if (fullArray.length) {
-      console.log(fullArray[6].title)
+
       setAppLoaded(true)
     }
 
@@ -125,8 +126,8 @@ function App() {
     centerPadding: '60px',
     arrows: true,
     lazyLoad: 'ondemand',
-    beforeChange: (current, next) => setActiveSlideBefore(next),
-    afterChange: current => setActiveSlideAfter(current)
+    beforeChange: (current, next) => setActiveSlideBefore(next)
+    
   };
 
 
@@ -146,11 +147,16 @@ function App() {
           (
             <div className='app-container'>
 
-              <MovieInfo title={fullArray[activeSlideBefore].title} poster={fullArray[activeSlideBefore].poster_path} overview={fullArray[activeSlideBefore].overview} backdrop={fullArray[activeSlideBefore].backdrop_path} />
+              <MovieInfo 
               
+                        title={fullArray[activeSlideBefore].title} 
+                        poster={fullArray[activeSlideBefore].poster_path} 
+                        id={fullArray[activeSlideBefore].id}  
+                        
+              />
               
-              <div className="slider-wrapper">
 
+              <div className="slider-wrapper">
 
                 <Slider {...settingsThumbs}>
 
@@ -158,10 +164,8 @@ function App() {
 
                 </Slider>
 
-
               </div>
             
-
           </div>
 
         ):
