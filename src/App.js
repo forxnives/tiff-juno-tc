@@ -17,11 +17,8 @@ function App() {
 
 
   const [fullArray, setFullArray] = useState([]);
-  const [appLoaded, setAppLoaded] = useState(false)
+  const [appLoaded, setAppLoaded] = useState(false);
   const [activeSlideBefore, setActiveSlideBefore] = useState(0);
-
-
-
 
   const API_KEY = 'd17532e59bebbbee29d974df5c3772d7';
 
@@ -138,7 +135,6 @@ function App() {
     <div className="App">
 
       <Nav />
-
 
       {
 

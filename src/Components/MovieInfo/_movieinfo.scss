@@ -103,6 +103,15 @@
         .details-inner {
             width: 90vw;
             height: 100%;
+
+            img {
+                display: block;
+            }
+
+            .pic-name {
+                display: block;
+
+            }
         }
 
         img {

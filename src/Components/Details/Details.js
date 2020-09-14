@@ -9,6 +9,11 @@ const Details = ({id, title, overview, genres, tagline, runtime}) => {
     const [ tabToggle, toggleTabToggle ] =  useState(false)
 
 
+
+
+
+
+
     const genreList = genres => {
         if (genres) {
             return (genres.map(genre => (
@@ -21,8 +26,6 @@ const Details = ({id, title, overview, genres, tagline, runtime}) => {
 
 
 
-    // console.log(tagline)
-
 
 
 
@@ -31,9 +34,7 @@ const Details = ({id, title, overview, genres, tagline, runtime}) => {
         
         <div className='details-inner'>
 
-
             <div className='tabs'>
-
 
                 <div onClick={()=> toggleTabToggle(false)} className={`tab ${
 
@@ -65,10 +66,12 @@ const Details = ({id, title, overview, genres, tagline, runtime}) => {
 
                 {
                     tabToggle ? 
-                    <Cast id={id} /> :
+                    <Cast title={title} id={id} /> :
                     (                
                         <div>
-                            <ContentRow cat='Title' content={title} />
+                            {/* <ContentRow cat='Title' content={title} /> */}
+
+                            <div> <h2>{title}</h2> </div>
 
                         {
                             tagline ?
@@ -89,27 +92,7 @@ const Details = ({id, title, overview, genres, tagline, runtime}) => {
 
 
                     
-                
             </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
         </div>

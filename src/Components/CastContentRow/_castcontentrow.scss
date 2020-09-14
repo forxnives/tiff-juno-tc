@@ -1,0 +1,67 @@
+.actor-row {
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .row{
+        border: 1px solid black;
+        height: 120px;
+
+    }
+
+    .pic-name {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+    }
+
+    table {
+        border-collapse: collapse;
+        width: 100%;
+        table-layout: fixed;
+      }
+      
+      td, th {
+        border-bottom: 1px solid black;
+        padding: 0.5rem;
+        text-align: center;
+
+        .pic {
+
+            display: flex;
+            justify-content: center;
+
+            // margin-right: 20px;
+
+            img{
+                height: 120px;
+                width: auto;
+                border: none;
+                margin: auto;
+            }
+        }
+
+        .name {
+            display: flex;
+            flex-direction: column;
+            // padding: 0 2px;
+
+        }
+
+        .knownfor {
+            display: flex;
+            flex-direction: column;
+        }
+      }
+
+
+
+    &-name {
+        display: flex;
+        flex-direction: column;
+        ;
+    }
+
+}

@@ -43,16 +43,16 @@ const MovieInfo = ({title, poster, id}) => {
 
     useEffect(() => {
 
-        console.log('refreshed')
+        console.log(id)
         
     }) 
 
-    const backdroptest = `https://image.tmdb.org/t/p/w1280${currentMovie.backdrop_path}`
+    const backdrop = `https://image.tmdb.org/t/p/w1280${currentMovie.backdrop_path}`
 
     const sectionStyle = {
         width: "100%",
         height: "94vh",
-        backgroundImage: "linear-gradient(to bottom, rgba(0, 0, 0, 0.79), rgba(0, 0, 0, 0.99)), url(" + backdroptest + ")" 
+        backgroundImage: "linear-gradient(to bottom, rgba(0, 0, 0, 0.79), rgba(0, 0, 0, 0.99)), url(" + backdrop + ")" 
         };
 
 
@@ -67,7 +67,7 @@ const MovieInfo = ({title, poster, id}) => {
 
                     <div className='box'>
 
-                        <img src={`https://image.tmdb.org/t/p/w342${poster}`} ></img>
+                        <img title={title} src={`https://image.tmdb.org/t/p/w342${poster}`} ></img>
 
                         <div className='details'>
 
