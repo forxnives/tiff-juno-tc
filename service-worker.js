@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/tiff-juno-tc/precache-manifest.3f7323419482409d8b9411ee865e342d.js"
+  "/tiff-juno-tc/precache-manifest.72d3288852c636c653d51f328aa5b0ad.js"
 );
 
 self.addEventListener('message', (event) => {

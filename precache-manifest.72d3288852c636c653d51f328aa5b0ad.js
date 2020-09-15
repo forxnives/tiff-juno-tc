@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "ee320a7a7e06f25a34afcb340c234ddc",
+    "revision": "a68c36baf14de81629c5dbda4a2bda3f",
     "url": "/tiff-juno-tc/index.html"
   },
   {
@@ -8,8 +8,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/tiff-juno-tc/static/css/2.60f46000.chunk.css"
   },
   {
-    "revision": "69b46ff95c90e28bada3",
-    "url": "/tiff-juno-tc/static/css/main.ef801454.chunk.css"
+    "revision": "895490a19d5f929f0e8f",
+    "url": "/tiff-juno-tc/static/css/main.8162ae65.chunk.css"
   },
   {
     "revision": "fd6bb4f4d8ea0410be8c",
@@ -20,7 +20,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/tiff-juno-tc/static/js/2.53bee5c0.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "69b46ff95c90e28bada3",
+    "revision": "895490a19d5f929f0e8f",
     "url": "/tiff-juno-tc/static/js/main.853c852f.chunk.js"
   },
   {
