@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "ee320a7a7e06f25a34afcb340c234ddc",
+    "revision": "6c57185cfa94e988c70922feaa591b07",
     "url": "/tiff-juno-tc/index.html"
   },
   {
