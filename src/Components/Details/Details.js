@@ -9,11 +9,8 @@ const Details = ({id, title, overview, genres, tagline, runtime}) => {
     const [ tabToggle, toggleTabToggle ] =  useState(false)
 
 
-
-
-
-
-
+    // render genres //
+    
     const genreList = genres => {
         if (genres) {
             return (genres.map(genre => (
@@ -22,11 +19,6 @@ const Details = ({id, title, overview, genres, tagline, runtime}) => {
         }
         return null
     }
-
-
-
-
-
 
 
 
@@ -63,13 +55,11 @@ const Details = ({id, title, overview, genres, tagline, runtime}) => {
 
             <div className='content'>
 
-
                 {
                     tabToggle ? 
                     <Cast title={title} id={id} /> :
                     (                
-                        <div>
-                            {/* <ContentRow cat='Title' content={title} /> */}
+                        <div className='content-wrapper'>
 
                             <div> <h2>{title}</h2> </div>
 
@@ -91,9 +81,7 @@ const Details = ({id, title, overview, genres, tagline, runtime}) => {
                 }
 
 
-                    
             </div>
-
 
         </div>
 

@@ -1,21 +1,20 @@
 import React from 'react';
 
-const ContentRow = ({cat, content}) => {
-
-    return (
+const ContentRow = ({cat, content}) => (
+    
         <div className='row'>
             <div className='col col-category'>  
-                {cat}
+                <span style={{'fontSize': '16px'}}>{cat}</span>
             
             </div>
 
             <div className='col col-info'> 
-            {content}
+            <span>{content}</span>
             </div>
         
 
         </div>
-    )
-}
+)
+
 
 export default ContentRow;

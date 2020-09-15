@@ -1,0 +1,61 @@
+.about {
+    color: white;
+    background-color: black;
+    z-index: 1;
+    position: absolute;
+    width: 100vw;
+    height: 94vh;
+    transition: all .8s ease;
+    animation: slideIn .8s;
+    overflow: hidden;
+    text-align: center;
+    display: flex;
+    // flex-direction: column;
+    justify-content: center;
+    // align-items: center;
+
+
+    &-container {
+        width: 70vw;
+        margin: 10% 0;
+
+        h1{
+            font-size: 42px;
+        }
+
+        span{
+            font-size: 19px;
+        }
+    }
+
+}
+
+
+
+
+@keyframes slideIn {
+    0% {
+      transform: translateX(100vw) ;
+    }
+    100% {
+      transform: translateX(0px) ;
+    }
+  }
+  
+  @keyframes slideUp {
+    0% {
+      transform: translateY(300px);
+    }
+    100% {
+      transform: translateY(0px);
+    }
+  }
+  
+  @keyframes expand {
+    0% {
+      transform: translateX(1400px);
+    }
+    100% {
+      transform: translateX(0px);
+    }
+  }

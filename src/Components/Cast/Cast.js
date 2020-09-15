@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
 
-
 import CastContentRow from '../CastContentRow/CastContentRow';
+
+
+
 
 const Cast = ({id, title}) => {
 
@@ -10,13 +12,7 @@ const Cast = ({id, title}) => {
     const API_KEY = 'd17532e59bebbbee29d974df5c3772d7';
 
 
-    const mostPopular = catalogArray => {
-
-        catalogArray.splice(catalogArray.indexOf(catalogArray.find(movie => (movie.title === title))), 1)
-
-        return catalogArray.sort((a, b) => (b.popularity - a.popularity)).slice(0,7).map(movie => (movie.title))
-
-    } 
+    // fetch movie's cast //
 
     async function castFetch(movieId) {
 
@@ -26,6 +22,8 @@ const Cast = ({id, title}) => {
         
     }
 
+    // fetch actor's catalog //
+
     async function catalogFetch(castId) {
 
         let response = await fetch(`https://api.themoviedb.org/3/person/${castId}/movie_credits?api_key=${API_KEY}&language=en-US`) 
@@ -33,6 +31,18 @@ const Cast = ({id, title}) => {
 
         return mostPopular(json.cast)
     }
+
+    // remove current movie from actor's catalog and return 7 most popular movie titles //
+
+    const mostPopular = catalogArray => {
+
+        catalogArray.splice(catalogArray.indexOf(catalogArray.find(movie => (movie.title === title))), 1)
+
+        return catalogArray.sort((a, b) => (b.popularity - a.popularity)).slice(0,7).map(movie => (movie.title))
+
+    } 
+
+    // return data for first 7 cast members upon recieving new id prop //
 
 
     useEffect(()=>{
@@ -52,15 +62,11 @@ const Cast = ({id, title}) => {
             const castData = await Promise.all(promises)
             setCastData(castData)
 
-
         }
 
         onIdChange()
     },[id])
 
-    // const castList = castData.map(actor => 
-    //     (<CastContentRow profileImg={actor.profileImg} name={actor.name} character={actor.character} catalog={actor.catalog} />)
-    // )
 
 
 
@@ -71,7 +77,7 @@ const Cast = ({id, title}) => {
 
             {
                 castData ? 
-                // (<CastContentRow profileImg={castData[0].profileImg} name={castData[0].name} character={castData[0].character} catalog={castData[0].catalog} />) :
+                
                 (
                     castData.map(actor => 
                         (<CastContentRow profileImg={actor.profileImg} name={actor.name} character={actor.character} catalog={actor.catalog} />)

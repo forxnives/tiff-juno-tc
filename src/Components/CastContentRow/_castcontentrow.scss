@@ -41,6 +41,21 @@
                 border: none;
                 margin: auto;
             }
+
+            &-missing {
+                border: 2px solid black;
+                width: 80px;
+                height: 100px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                border-radius: 5px;
+                
+                span {
+                    font-size: .8rem;
+                }
+                
+            }
         }
 
         .name {

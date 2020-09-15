@@ -4,7 +4,8 @@
 @import "../Components/SlideItem/slideitem";
 @import "../Components/MovieInfo/_movieinfo";
 @import "../Components/Details/details";
-@import "../Components//CastContentRow//castcontentrow";
+@import "../Components/CastContentRow/castcontentrow";
+@import "../Components/About/about";
 
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap');
 
@@ -12,4 +13,33 @@
 body {
     margin: 0;
     font-family: 'Roboto', sans-serif;
+    overflow: hidden;
+
+
+    span {
+        font-size: 19px;
+    }
+}
+
+
+
+.overflow{
+    overflow: hidden;
+    height: 94vh;
+    width: 100vw;
+}
+
+.footer {
+    position: absolute;
+    bottom: 0px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    color: rgba(#999999, .6) ;
+
+    span {
+        font-size: .5rem;
+        padding: 10px;
+    }
+
 }

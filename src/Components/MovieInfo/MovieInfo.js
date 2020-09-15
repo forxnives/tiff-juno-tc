@@ -1,14 +1,18 @@
 import React, { useEffect, useState } from 'react';
 import Details from '../Details/Details';
 
+
+
+
 const MovieInfo = ({title, poster, id}) => {
 
 
     const [ currentMovie, setCurrentMovie ] = useState(id)
 
-
-
     const API_KEY = 'd17532e59bebbbee29d974df5c3772d7';
+
+
+    // fetch movie details //
 
     async function movieFetch(id) {
         console.log(id)
@@ -17,6 +21,8 @@ const MovieInfo = ({title, poster, id}) => {
         return json
         
     }
+
+    // set current movie state upon recieving new id from App.js //
 
     useEffect(() => {
 
@@ -32,22 +38,11 @@ const MovieInfo = ({title, poster, id}) => {
 
 
 
-    useEffect(() => {
-        console.log(currentMovie)
-
-
-
-    }, [currentMovie]) 
-
-
-
-    useEffect(() => {
-
-        console.log(id)
-        
-    }) 
+    // backdrop path //
 
     const backdrop = `https://image.tmdb.org/t/p/w1280${currentMovie.backdrop_path}`
+
+    // inline style for background //
 
     const sectionStyle = {
         width: "100%",
@@ -67,7 +62,16 @@ const MovieInfo = ({title, poster, id}) => {
 
                     <div className='box'>
 
-                        <img title={title} src={`https://image.tmdb.org/t/p/w342${poster}`} ></img>
+                        {
+                            poster ?
+                            (<img title={title} src={`https://image.tmdb.org/t/p/w342${poster}`} ></img>):
+                            (<div className='img-missing'>
+                                <span>{title}</span>
+                                <span>IMAGE NOT AVAILABLE</span>
+                            </div>)
+                        }
+
+                        
 
                         <div className='details'>
 
@@ -80,7 +84,6 @@ const MovieInfo = ({title, poster, id}) => {
                                     runtime={currentMovie.runtime}
                             />
 
-                            
 
                         </div>
 
