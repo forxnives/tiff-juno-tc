@@ -1,0 +1,26 @@
+{
+  "files": {
+    "main.css": "/tiff-juno-tc/static/css/main.ef801454.chunk.css",
+    "main.js": "/tiff-juno-tc/static/js/main.cc15fe44.chunk.js",
+    "main.js.map": "/tiff-juno-tc/static/js/main.cc15fe44.chunk.js.map",
+    "runtime-main.js": "/tiff-juno-tc/static/js/runtime-main.983175ee.js",
+    "runtime-main.js.map": "/tiff-juno-tc/static/js/runtime-main.983175ee.js.map",
+    "static/css/2.60f46000.chunk.css": "/tiff-juno-tc/static/css/2.60f46000.chunk.css",
+    "static/js/2.53bee5c0.chunk.js": "/tiff-juno-tc/static/js/2.53bee5c0.chunk.js",
+    "static/js/2.53bee5c0.chunk.js.map": "/tiff-juno-tc/static/js/2.53bee5c0.chunk.js.map",
+    "index.html": "/tiff-juno-tc/index.html",
+    "precache-manifest.db76afc0ea38d5d22f9f1be7ffe40633.js": "/tiff-juno-tc/precache-manifest.db76afc0ea38d5d22f9f1be7ffe40633.js",
+    "service-worker.js": "/tiff-juno-tc/service-worker.js",
+    "static/css/2.60f46000.chunk.css.map": "/tiff-juno-tc/static/css/2.60f46000.chunk.css.map",
+    "static/css/main.ef801454.chunk.css.map": "/tiff-juno-tc/static/css/main.ef801454.chunk.css.map",
+    "static/js/2.53bee5c0.chunk.js.LICENSE.txt": "/tiff-juno-tc/static/js/2.53bee5c0.chunk.js.LICENSE.txt",
+    "static/media/slick-theme.css": "/tiff-juno-tc/static/media/slick.f97e3bbf.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.983175ee.js",
+    "static/css/2.60f46000.chunk.css",
+    "static/js/2.53bee5c0.chunk.js",
+    "static/css/main.ef801454.chunk.css",
+    "static/js/main.cc15fe44.chunk.js"
+  ]
+}
