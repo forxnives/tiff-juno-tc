@@ -15,7 +15,7 @@ const MovieInfo = ({title, poster, id}) => {
     // fetch movie details //
 
     async function movieFetch(id) {
-        console.log(id)
+
         let response = await fetch(`https://api.themoviedb.org/3/movie/${id}?api_key=${API_KEY}&language=en-US`);
         let json = await response.json()
         return json
@@ -40,7 +40,7 @@ const MovieInfo = ({title, poster, id}) => {
 
     // backdrop path //
 
-    const backdrop = `https://image.tmdb.org/t/p/w1280${currentMovie.backdrop_path}`
+    const backdrop =  currentMovie.backdrop_path ? (`https://image.tmdb.org/t/p/w1280${currentMovie.backdrop_path}`): null
 
     // inline style for background //
 

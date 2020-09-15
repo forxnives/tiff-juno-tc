@@ -9,7 +9,7 @@ const ContentRow = ({cat, content}) => (
             </div>
 
             <div className='col col-info'> 
-            <span>{content}</span>
+                <span>{content}</span>
             </div>
         
 

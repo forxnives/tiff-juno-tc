@@ -111,7 +111,7 @@ function App() {
   // render slide items //
   
   const slideList =  fullArray.map((movie, index) => (
-    <SlideItem index={index} title={movie.title} image={movie.poster_path} />    
+    <SlideItem key={index} title={movie.title} image={movie.poster_path} />    
   ));
 
 
